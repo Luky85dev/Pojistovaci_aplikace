@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+
+<head th:replace="~{fragments/layout.html :: head}"></head>
+
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<article>
+        <section>
+            <img class="left" th:src="@{/images/pojistnik.png}" alt="pojistník"/>
+            <div class="container-fluid" th:each="client: ${clientes}">
+                <div class="row">
+                    <h2 class="col-sm-4" th:text="${client.jmeno} +' '+ ${client.prijmeni}"></h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4" th:text="${client.ulice}"></div>
+                    <div class="col-sm-4" th:text="${client.email}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4" th:text="${client.mesto}"></div>
+                    <div class="col-sm-4" th:text="${client.telefon}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4" th:text="${client.psc}"></div>
+                </div>
+            </div>
+            <div class="cistic">
+            </div>
+
+            <div><br />
+                <p><h2>Sjednané pojištění klienta</h2></p>
+                <div class="container-fluid" th:each="insured: ${insureds}">
+                    <div class="row">
+                        <h4 class="col-sm-4" th:text="${insured.pojisteni}"</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4" th:text="'Předmět pojištění: ' + ${insured.predmet}"></div>
+                        <div class="col-sm-4" th:text="'Pojištěná částka: ' + ${insured.castka} + ' Kč '"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4" th:text="'Začátek platnosti pojištění: ' + ${insured.platnostOd}"></div>
+                        <div class="col-sm-4" th:text="'Konec platnosti pojištění: ' + ${insured.platnostDo}"></div>
+                    </div>
+                </div>
+            </div>
+            <p><br />
+            <a class="novy-tlacitko" th:href="@{/insureds}">Zpět na výpis pojištění</a>
+            </p>
+
+        </section>
+
+    </div>
+</article>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+
+</body>
+</html>

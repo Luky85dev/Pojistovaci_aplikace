@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<div class="py-2 flash-message message-success" th:text="${success}" th:if="${success}"></div>
+<div class="py-2 flash-message message-error" th:text="${error}" th:if="${error}"></div>
+
+<article>
+
+    <header>
+      <h1>Přehled pojištění</h1>
+    </header>
+
+    <section>
+      <p class="newBtn">
+        <a class="novy-tlacitko" th:href="@{/insureds/create}">Nové pojištění</a>
+      </p>
+
+      <table class="table" id="insured">
+          <thead>
+          <tr>
+            <th colspan="1">Pojištění</th>
+            <th colspan="2">Částka</th>
+
+          </tr>
+          </thead>
+          <tbody th:each="insured: ${insureds}" >
+          <tr>
+          <td><a th:href="@{'/insureds/' + ${insured.insuredId}}" th:text="${insured.pojisteni}"></a></td>
+
+          <td th:text="${insured.castka}"></td>
+
+
+
+          <td><a class="novy-tlacitkodva" th:href="@{'/insureds/edit/' + ${insured.insuredId}}">Editovat</a>
+          <a class="novy-tlacitkotri" th:href="@{'/insureds/delete/' + ${insured.insuredId}}">Odstranit</a></td>
+          </tr>
+          </tbody>
+
+      </table>
+    </section>
+
+</article>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+
+</body>
+</html>

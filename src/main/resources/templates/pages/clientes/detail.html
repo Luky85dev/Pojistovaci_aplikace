@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+
+<head th:replace="~{fragments/layout.html :: head}"></head>
+
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<article>
+        <section>
+             <img class="left" th:src="@{/images/pojistnik.png}" alt="pojistník"/>
+            <div class="container-fluid" th:each="client: ${clientes}">
+                <div class="row">
+                <h2 class="col-sm-8" th:text="${client.jmeno} +' '+ ${client.prijmeni}"></h2>
+                    </div>
+                <div class="row">
+                <div class="col-sm-4" th:text="${client.ulice}"></div>
+                    <div class="col-sm-4" th:text="${client.email}"></div>
+                    </div>
+                <div class="row">
+                <div class="col-sm-4" th:text="${client.mesto}"></div>
+                    <div class="col-sm-4" th:text="${client.telefon}"></div>
+                    </div>
+                <div class="row">
+                <div class="col-sm-4" th:text="${client.psc}"></div>
+                </div>
+            </div>
+
+
+            <div><br />
+            <p><h3 class="cistic">Sjednaná pojištění klienta</h3></p>
+            <p><table class="table" id="insured">
+                <thead>
+                <tr>
+                    <th colspan="1">Pojištění</th>
+                    <th colspan="2">Částka</th>
+
+                </tr>
+                </thead>
+                <tbody th:each="insured: ${insureds}">
+                <tr>
+                    <td><a th:href="@{'/insureds/' + ${insured.insuredId}}" th:text="${insured.pojisteni} +' '+ ${insured.castka}"></a></td>
+
+                    <td th:text="${insured.platnostOd} +', '+ ${insured.platnostDo}"></td>
+
+
+
+                    <td><a class="btn btn-warning" th:href="@{'/insureds/edit/' + ${insured.insuredId}}">Editovat</a>
+                        <a class="btn btn-danger" th:href="@{'/insureds/delete/' + ${insured.insuredId}}">Odstranit</a></td>
+                </tr>
+                </tbody>
+
+            </table>
+            </p>
+            </div>
+            <p class="newBtn" th:each="client: ${clientes}">
+               <a class="novy-tlacitko" th:href="@{/insureds/create}">Přidat pojištění</a>
+               <a class="novy-tlacitkodva" th:href="@{'/clientes/edit/' + ${client.clientId}}">Editovat pojištěnce</a>
+               <a class="novy-tlacitkotri" th:href="@{'/clientes/delete/' + ${client.clientId}}">Odstranit pojištěnce</a>
+                <a class="novy-tlacitko" th:href="@{/clientes}">Zpět na výpis</a>
+            </p>
+
+        </section>
+
+    </div>
+</article>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+
+</body>
+</html>

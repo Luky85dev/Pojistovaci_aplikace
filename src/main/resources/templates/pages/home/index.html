@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+<head th:replace="~{fragments/layout.html :: head}">
+</head>
+<body class="crash">
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<article>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+        <h1 class="display-3">PojištěníAPP</h1>
+        <p class="lead">Neházejte starosti za hlavu. S naší pojišťovací aplikací získáte to nejvýhodnější pojištění !!</p>
+        <hr class="my-4">
+        <p>Vstoupit do aplikace</p>
+        <p class="lead">
+            <a class="novy-tlacitko" th:href="@{/account/register}" role="button">Zaregistrovat se</a>
+        </p>
+        </div>
+    </div>
+
+</article>
+
+    <footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

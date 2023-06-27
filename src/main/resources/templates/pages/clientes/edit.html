@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+
+<head th:replace="~{fragments/layout.html :: head}"></head>
+
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<article>
+  <div id="centrovac">
+    <header>
+      <h1>Úprava pojištěného</h1>
+    </header>
+
+    <section>
+      <form method="post"
+            th:action="@{'/clientes/edit/' + ${clientId}}"
+            th:object="${clientDTO}">
+        <div class="d-sm-flex justify-content-start">
+          <div class="form-group col-sm-4 p-2 m-1">
+            <label for="jmeno" class="col-form-label">Jméno</label>
+            <input id="jmeno" placeholder="Vyplňte jméno" th:field="*{jmeno}" class="form-control"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('jmeno')}" th:errors="*{jmeno}"></small>
+          </div>
+          <div class="form-group col-sm-4 p-2 m-1">
+            <label for="prijmeni" class="col-form-label">Přijmení</label>
+            <input id="prijmeni" placeholder="Vyplňte přijmení" th:field="*{prijmeni}" class="form-control"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('prijmeni')}" th:errors="*{prijmeni}"></small>
+          </div>
+        </div>
+        <div class="d-sm-flex justify-content-start">
+          <div class="form-group col-sm-4 p-2 m-1">
+            <label for="email" class="col-form-label">Email</label>
+            <input id="email" placeholder="Vyplňte email" class="form-control" th:field="*{email}"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+          </div>
+          <div class="form-group col-sm-4 p-2 m-1">
+            <label for="telefon" class="col-form-label">Telefonní číslo</label>
+            <input id="telefon" placeholder="Vyplňte telefonní číslo" class="form-control" th:field="*{telefon}"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}"></small>
+          </div>
+        </div>
+        <div class="d-sm-flex justify-content-start">
+          <div class="form-group col-sm-4 p-2 m-1">
+            <label for="ulice" class="col-form-label">Ulice a číslo popisné</label>
+            <input id="ulice" placeholder="Vyplňte ulici a číslo popisné" class="form-control" th:field="*{ulice}"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('ulice')}" th:errors="*{ulice}"></small>
+          </div>
+          <div class="form-group col-sm-4 p-2 m-1">
+            <label for="mesto" class="col-form-label">Město</label>
+            <input id="mesto" placeholder="Vyplňte město" class="form-control" th:field="*{mesto}"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('mesto')}" th:errors="*{mesto}"></small>
+          </div>
+        </div>
+        <div class="d-sm-flex justify-content-start">
+          <div class="form-group col-sm-4 p-2 m-1">
+            <label for="psc" class="col-form-label">PSČ</label>
+            <input id="psc" placeholder="Vyplňte poštovní směrovací číslo" class="form-control" th:field="*{psc}"/>
+            <small class="text-danger" th:if="${#fields.hasErrors('psc')}" th:errors="*{psc}"></small>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="novy-tlacitko">Uložit</button>
+        </div>
+      </form>
+
+      <a class="novy-tlacitko" th:href="@{/clientes}">Zpět na výpis pojištěných</a>
+    </section>
+  </div>
+</article>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

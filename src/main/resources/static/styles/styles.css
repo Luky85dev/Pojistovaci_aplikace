@@ -1,0 +1,259 @@
+@font-face {
+    font-family: Poppins;
+    src: url(../fonts/Poppins-Regular.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(../fonts/Poppins-ExtraBold.ttf);
+    font-weight: bold;
+}
+
+body {
+    font: 17px "Poppins";
+    background: #f9f9f9;
+    color: #414042;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 40px 0px 0px 0px;
+    min-height: 100vh;
+    min-width: 960px;
+}
+
+
+body > header {
+    height: 60px;
+    width: 100%;
+    background: #8c8c8c;
+    color: white;
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+}
+
+.posabs {
+    position: absolute;
+        right: 20px;
+        top: -14px;
+}
+
+.posabsTwo {
+    position: absolute;
+        right: 160px;
+        top: -14px;
+}
+
+#logo {
+    height: 40px;
+    margin: auto 0 auto 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: 40px 40px;
+}
+
+#logo > * {
+    margin: 0 0 0 25px;
+}
+
+#logo a {
+    color: white;
+    text-decoration: none;
+}
+
+#logo h1 {
+    font-weight: normal;
+    font-size: 1.9em;
+    line-height: 1.2em;
+    color: white;
+}
+
+#logo h1 span {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#logo small {
+    text-transform: uppercase;
+    font-size: 0.6em;
+    color: #ebebe0;
+}
+
+nav ul {
+    margin: 0 30px;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+nav ul li {
+    padding: 0 10px;
+    margin: 0 5px;
+    font-size: 1.2em;
+    line-height: 4.3em;
+}
+
+nav ul a {
+    color: white;
+    padding: 8px 0;
+    text-decoration: none;
+
+}
+
+nav ul a:hover,
+.aktivni a {
+    color: #ffe4b3;
+}
+
+article {
+    padding: 80px 50px;
+    flex: 1;
+}
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+    padding: 10px 0;
+    color: #000000;
+    width: max-content;
+}
+
+article h1 {
+    margin: 0;
+    font-size: 2.0em;
+    }
+
+table {
+    border: 2px solid black;
+    box-shadow: 2px 2px 5px black;
+}
+
+article section div p h2 {
+    font-size: 1em;
+    text-transform: bold;
+}
+
+article header {
+    height: 100px;
+}
+
+article section p {
+    margin-bottom: 1.5em;
+    line-height: 1.5em;
+}
+
+article section a {
+    color: #EF6534;
+}
+
+footer {
+    box-sizing: border-box;
+    text-align: center;
+    height: 50px;
+    color: white;
+    background: #414042;
+
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer p {
+    text-align: center;
+    padding: 12px;
+}
+
+.centrovany {
+    text-align: center;
+}
+
+#centrovac {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.left {
+    float: left;
+    width: 180px;
+    padding: 0px 20px 0px 10px;
+    }
+
+
+.cistic {
+    clear: both;
+}
+
+a:hover {
+    color: currentColor;
+}
+
+.newBtn {
+    text-align: center;
+}
+
+.novy-tlacitko {
+    background: #00BFFF;
+    color: white;
+    text-decoration: none;
+    padding: 7px 20px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 0;
+    text-align: center;
+}
+
+.novy-tlacitkodva {
+    background: #FFC107;
+    color: white;
+    text-decoration: none;
+    padding: 7px 20px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 0;
+    text-align: center;
+}
+
+.novy-tlacitkotri {
+    background: #DC3545;
+    color: white;
+    text-decoration: none;
+    padding: 7px 20px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 0;
+    text-align: center;
+}
+
+#clanky li h2 a {
+    text-decoration: none;
+    color: #00386B;
+}
+
+.flash-message {
+    text-align: center;
+    color: white;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 14px;
+}
+
+.message-success {
+    background: #33cc80;
+}
+
+.message-error {
+    background: #d41400;
+}
+
+
+

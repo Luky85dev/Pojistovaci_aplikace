@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns="http://www.w3.org/1999/html">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<div class="py-2 flash-message message-success" th:text="${success}" th:if="${success}"></div>
+<div class="py-2 flash-message message-error" th:text="${error}" th:if="${error}"></div>
+
+<article>
+
+    <header>
+      <h1>Výpis pojištěných klientů</h1>
+    </header>
+
+    <section>
+      <p class="newBtn">
+        <a class="novy-tlacitko" th:href="@{/clientes/create}">Nový pojištěnec</a>
+      </p>
+
+      <table class="table" id="client">
+          <thead>
+          <tr>
+            <th colspan="1">Jméno</th>
+            <th colspan="2">Bydliště</th>
+
+          </tr>
+          </thead>
+          <tbody th:each="client: ${clientes}">
+          <tr>
+          <td><a th:href="@{'/clientes/' + ${client.clientId}}" th:text="${client.jmeno} +' '+ ${client.prijmeni}"></a></td>
+
+          <td th:text="${client.ulice} +', '+ ${client.mesto}"></td>
+
+
+
+          <td><a class="novy-tlacitkodva" th:href="@{'/clientes/edit/' + ${client.clientId}}">Editovat</a>
+          <a class="novy-tlacitkotri" th:href="@{'/clientes/delete/' + ${client.clientId}}">Odstranit</a></td>
+          </tr>
+          </tbody>
+
+      </table>
+    </section>
+
+</article>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+
+</body>
+</html>
